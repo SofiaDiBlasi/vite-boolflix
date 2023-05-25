@@ -1,19 +1,20 @@
 <script>
     import axios from 'axios';
     import { store } from '../data/store';
+    import { serie } from '../data/serie';
 
     export default {
         name: "SearchFilm",
         data() {
             return{
                 input: "",
-                store
+                store,
+                serie
             }
         },
         methods: {
             ricerca() {
                 axios.get(this.store.urlAPI + "&query=" + this.input).then(r => {
-                    console.log(r);
                     this.store.film = r.data.results;
                     this.store.loading = false;
                 }).catch(errore => {
@@ -22,8 +23,15 @@
                     this.store.loading = false;
                 });
 
-                console.log(this.store);
-                console.log(this.store.film)
+                axios.get(this.serie.urlAPI + "&query=" + this.input).then(r => {
+                    console.log(r);
+                    this.serie.serie = r.data.results;
+                    this.serie.loading = false;
+                }).catch(errore => {
+                    console.error("Nessun film trovato", errore);
+                    this.serie.serie = [];
+                    this.serie.loading = false;
+                });
             }
         }
     }

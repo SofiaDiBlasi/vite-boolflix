@@ -1,6 +1,6 @@
 <script>
     export default {
-        name: "Film",
+        name: "Serie",
         props: {
             title: String,
             originaltitle: String,
