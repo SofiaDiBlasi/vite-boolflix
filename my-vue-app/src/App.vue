@@ -25,9 +25,9 @@ export default {
   <div>
     <AppSearchFilm />
     <div class="flex">
-      <AppFilmVue v-for="film in this.store.film" :key="film" :title="film.title" 
+      <AppFilmVue v-for="film in this.store.film" :key="film" :title="film.title" :copertina="film.poster_path" 
     :originaltitle="film.original_title" :lang="film.original_language" :rate="film.vote_average" />
-      <AppSerieVue v-for="serie in this.serie.serie" :key="serie" :title="serie.name"
+      <AppSerieVue v-for="serie in this.serie.serie" :key="serie" :title="serie.name" :copertina="serie.poster_path"
       :originaltitle="serie.original_name" :lang="serie.original_language" :rate="serie.vote_average" />
     </div>
   </div>
