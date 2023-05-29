@@ -38,10 +38,31 @@
 </script>
 
 <template>
-    <div>
-        <button @click="ricerca()">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <input v-model="input" type="text" placeholder="Cerca">
-    </div>
+    <!--header-->
+    <header>
+        <!--logo booltix-->
+        <h1 class="logo">Boolfix</h1>
+        <!--search bar-->
+        <div>
+            <button @click="ricerca()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input v-model="input" type="text" placeholder="Cerca">
+        </div>
+    </header>
 </template>
+
+<style>
+    header{
+        display: flex;
+        height: 5%;
+        background-color: black;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        
+    }
+    .logo{
+        color: red;
+    }
+</style>

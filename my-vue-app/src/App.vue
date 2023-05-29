@@ -1,41 +1,24 @@
 <script>
-import AppSearchFilm from './components/AppSearchFilm.vue';
-import AppFilmVue from './components/AppFilm.vue';
-import AppSerieVue from './components/AppSerie.vue';
-
-import { store } from './data/store';
-import { serie } from './data/serie';
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
   components: {
-    AppSearchFilm,
-    AppFilmVue,
-    AppSerieVue
-  },
-  data() {
-      return {
-        store,
-        serie
-      }
-    }
+    AppHeader,
+    AppMain
+  }
 }
 </script>
 
 <template>
-  <div>
-    <AppSearchFilm />
-    <div class="flex">
-      <AppFilmVue v-for="film in this.store.film" :key="film" :title="film.title" :copertina="film.poster_path" 
-    :originaltitle="film.original_title" :lang="film.original_language" :rate="film.vote_average" />
-      <AppSerieVue v-for="serie in this.serie.serie" :key="serie" :title="serie.name" :copertina="serie.poster_path"
-      :originaltitle="serie.original_name" :lang="serie.original_language" :rate="serie.vote_average" />
-    </div>
+  <div class="allContainer">
+    <AppHeader />
+    <AppMain />
   </div>
 </template>
 
 <style>
-  .flex{
-    display: flex;
-    flex-wrap: wrap;
+  .allContainer{
+    height: 100vh;
   }
 </style>

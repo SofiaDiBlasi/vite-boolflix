@@ -27,22 +27,39 @@
 
 <template>
     <div class="film">
-        <img :src="'https://image.tmdb.org/t/p/w154' + copertina" alt="">
-        <p>{{ title }}</p>
-        <p>{{ originaltitle }}</p>
-        <p><span :class="'fi-' + lang" class="fi fis"></span></p>
-        <p>
-            <span v-for="star in votoPieno" :key="star" class="fa-solid fa-star"></span>
-            <span v-for="star in votoVuoto" :key="star" class="fa-regular fa-star"></span>
-        </p>
+        <div class="cardImg">
+            <img :src="'https://image.tmdb.org/t/p/w342' + copertina" alt="">
+        </div>
+        <div class="cardInfo">
+            <p>{{ title }}</p>
+            <p>{{ originaltitle }}</p>
+            <p><span :class="'fi-' + lang" class="fi fis"></span></p>
+            <p>
+                <span v-for="star in votoPieno" :key="star" class="fa-solid fa-star"></span>
+                <span v-for="star in votoVuoto" :key="star" class="fa-regular fa-star"></span>
+            </p>
+        </div>
     </div>
 </template>
 
 <style>
     .film{
-        border: 2px solid black;
-        margin: 10px;
-        width: 200px;
+        border: 2px solid white;
         text-align: center;
+        flex-shrink: 0;
+        min-width: 342px;
+        margin: 10px;
+    }
+    .film:hover .cardInfo{
+        display: block;
+    }
+    .film:hover .cardImg{
+        display: none;
+    }
+    .cardInfo{
+        display: none;
+    }
+    .cardImg{
+        display: block;
     }
 </style>
